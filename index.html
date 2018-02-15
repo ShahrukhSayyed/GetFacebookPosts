@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>FBTrive</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/jumbotron.css" rel="stylesheet">
+
+	<link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #4a6aaa">
+      <div class="container">
+        <div class="navbar-header" >         
+          <a class="navbar-brand" href="#" style="color: #eee"><strong> FBTrive </strong></a>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron" style="background-color: #e9ebee" id="jumbotron">
+      	<div class="container">
+	      	<div class="row">
+	      		<div class="col-sm-12 col-lg-12">
+			        <h1>Hello, Friends!</h1>
+			        <p>This is a project for a retrieving your facebook details. You can use it as a starting point to create something more unique.</p>
+	      		</div>
+	      	</div>
+	      	
+	      	<div class="row">
+	      		<div class="col-sm-12 col-lg-12">
+	        		<input type="text" placeholder="Enter your access token here" class="form-control" id="tokenText" >
+			    	<a class="btn btn-primary btn-sm" href="#" role="button" id="facebookBtn">Go &raquo;</a>
+			</div>
+	      	</div>
+		</div>
+    </div>
+
+
+	<div id="containerCoverPic">
+		<div > <img id="coverPic" alt="Cover Pic" > </div>
+		<div class="text-center"> <img src="images/Avatar.png" alt="Profile Pic" id="profilePic"> </div>
+	</div>
+
+    <div class="text-center" id="loader">
+    	<img src="images/loading.gif" alt="Loading">
+    </div> <!-- End Div loader-->
+
+
+	<div class="container" id="mianContainer" style="background-color: transparent;">
+
+		<div class="row">
+	  		<div class="col-sm-3 col-md-3">
+	    		<div class="sidebar-nav">
+	      			<div class="navbar navbar-default" role="navigation">
+	        			<div class="navbar-header">
+	          				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+	            				<span class="sr-only">Menu</span>
+	            				<span class="icon-bar"></span>
+	            				<span class="icon-bar"></span>
+	            				<span class="icon-bar"></span>
+	          				</button>
+	          				<span class="visible-xs navbar-brand">Menu</span>
+	        			</div>
+	        			<div class="navbar-collapse collapse sidebar-navbar-collapse">
+		        	  		<ul class="nav navbar-nav">
+			            		<li class="active" id="itemLinkBasicDetails"><a href="#itemLinkBasicDetails" id="linkBasicDetails"> <i class="ion-person"></i> Basic Details</a></li>
+			            		<li > <a href="#linkAbout" id="linkAbout"> <i class="ion-quote"></i> About</a></li>
+			            		<li > <a href="#linkEducation" id="linkEducation"> <i class="ion-university"></i> Education</a></li>
+			            		<li > <a  href="#linkWork" id="linkWork"> <i class="ion-ios-briefcase"></i> Work</a></li>
+			            		<li > <a href="#linkPosts" id="linkPosts"> <i class="ion-ios-albums"></i> Posts</a></li>
+			          		</ul>
+	        			</div><!--/.nav-collapse -->
+	      			</div>
+	    		</div>
+	  		</div> <!-- End Div column3-->
+	  		
+	  		<div class="col-sm-9 col-md-9">
+		        <div class="card" id="basicDetailsCard">
+		        	<h4 style="font-weight: bold;"> Basic Details </h4>
+		        	<table class="table">
+					   	<tbody>
+					      	<tr>
+					        	<td>Name </td>
+					        	<td><span class="boldSpan" id="myName"></span></td>
+					      	</tr>
+					      	<tr>
+					        	<td>Birthday </td>
+					        	<td><span class="boldSpan" id="myBirthday"></span></td>
+					      	</tr>
+					      	<tr>
+					        	<td>Gender </td>
+					        	<td><span class="boldSpan" id="myGender" style="text-transform: capitalize;"></span> </td>
+					      	</tr>
+						 	<tr>
+					        	<td>Interested In </td>
+					        	<td><span class="boldSpan" id="myInterest" style="text-transform: capitalize;"></span></td>
+					      	</tr>
+					      	 	<tr>
+					        	<td>Languages </td>
+					        	<td><span class="boldSpan" id="myLanguages"></span></td>
+					      	</tr>
+					    </tbody>
+					</table>
+		        </div>
+
+		        <div class="card" id="aboutCard">
+		        	<h4 style="font-weight: bold;"> About </h4>
+		        	<table class="table">
+					   	<tbody>
+					      	<tr>
+					        	<td>Quotes </td>
+					        	<td><span class="boldSpan" id="myQoutes"></span></td>
+					      	</tr>
+					      	<tr>
+					        	<td>Email </td>
+					        	<td><span class="boldSpan" id="myEmail"></span></td>
+					      	</tr>
+					      	<tr>
+					        	<td>Friends </td>
+					        	<td><span class="boldSpan" id="myFriends"></span></td>
+					      	</tr>
+
+					    </tbody>
+					</table>
+		        </div>
+
+		        <div class="card" id="educationCard">
+		        	<h4 style="font-weight: bold;"> Education Details </h4>
+		        	<table class="table">
+					   	<tbody>
+					      	<tr>
+					        	<td><span id="myEducation"></span></td>
+					      	</tr>
+					    </tbody>
+					</table>
+		        </div>
+
+		        <div class="card" id="workCard">
+		        	<h4 style="font-weight: bold;"> Work Details </h4>
+		        	<table class="table">
+					   	<tbody>
+					      	<tr>
+					        	<td><span id="myEmployer"></span></td>
+					      	</tr>
+					    </tbody>
+					</table>
+		        </div>
+
+		        <div class="card" id="postsCard">
+		        	<h4 style="font-weight: bold;"> Latest Posts </h4>
+		        	<hr>
+		      		<p>
+					<a class="btn btn-primary btn-sm" href="posts/posts.html" role="button" id="postsHTML"><i class="far fa-hand-point-right">Click here to see the posts</a></i>
+		        	</p>
+		        </div>
+		    </div>
+		</div><!-- End Div column9-->
+
+	</div>
+
+	<hr>
+
+	<footer class="text-center footer">
+	    <p style="color: #eee"> Copyright &copy; 2018 <strong> Shahrukh Sayyed</strong> </p>
+	</footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>
