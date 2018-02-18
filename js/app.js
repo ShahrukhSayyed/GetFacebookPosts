@@ -107,26 +107,27 @@ $( document ).ready(function() {
                         $("#myName").text(response.name);
                     }    
                     else{
-                        $("#myName").text("");
+                        $("#myName").text("Not available in facebook");
                     }
 
                     if(response.name != undefined && response.name != null ){
                         $("#myBirthday").text(response.birthday);
                     }    
                     else{
-                        $("#myName").text("");
+                        $("#myName").text("Not available in facebook");
                     }
                     if(response.name != undefined && response.name != null ){
                         $("#myGender").text(response.gender);
                     }    
                     else{
-                        $("#myGender").text("");
+                        $("#myGender").text("Not available in facebook");
                     }
+                    
                     if(response.name != undefined && response.name != null ){
                         $("#myInterest").text(response.interested_in);
                     }    
                     else{
-                        $("#myInterest").text("");
+                        $("#myInterest").text("Not available in facebook");
                     }
 
 
@@ -134,7 +135,15 @@ $( document ).ready(function() {
                     var lang = $.map(response.languages, function(index) {
                         return index.name;
                     });
-                    $("#myLanguages").text(lang);
+
+                    if(lang == null ){
+                        $("#myLanguages").text("Not available in facebook");
+                    }    
+                    else{
+                        $("#myLanguages").text(lang);
+                    }
+
+
 
                     //About
 
@@ -142,12 +151,17 @@ $( document ).ready(function() {
                         $("#myQoutes").text(response.quotes);
                     }    
                     else{
-                        $("#myQoutes").text("");
+                        $("#myQoutes").text("Not available in facebook");
                     }
 
                     
+                    if(response.email != undefined && response.email != null ){
+                        $("#myEmail").text(response.email);
+                    }    
+                    else{
+                        $("#myEmail").text("Not available in facebook");
+                    }
 
-                    $("#myEmail").text(response.email);
 
                     var friends = $.map(response.friends.data, function(index,value) {
                         return index.name;
