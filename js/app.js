@@ -87,23 +87,65 @@ $( document ).ready(function() {
   //                  console.log(typeof(response));
                     
                     //Cover and Profile pic
+                    if(response.picture.data != undefined && response.picture.data!= null ){
+                        $("#profilePic").attr("src", "" + response.picture.data.url + "");                        
+                    }
+                    else{
+                        $("#profilePic").attr("src", "images/Avatar.png");                           
+                    }
 
-                    $("#profilePic").attr("src", "" + response.picture.data.url + "");
-                    $("#coverPic").attr("src", "" + response.cover.source + "");
+                    if(response.cover != undefined && response.cover != null ){
+                        $("#coverPic").attr("src", "" + response.cover.source + "");
+                    }    
+                    else{
+                        $("#coverPic").attr("src", "images/default-cover.jpg");
+                    }
                     
 
                     //Basic Details
-			        $("#myName").text(response.name);
-                    $("#myBirthday").text(response.birthday);
-                    $("#myGender").text(response.gender);
-                    $("#myInterest").text(response.interested_in);
+                    if(response.name != undefined && response.name != null ){
+                        $("#myName").text(response.name);
+                    }    
+                    else{
+                        $("#myName").text("");
+                    }
+
+                    if(response.name != undefined && response.name != null ){
+                        $("#myBirthday").text(response.birthday);
+                    }    
+                    else{
+                        $("#myName").text("");
+                    }
+                    if(response.name != undefined && response.name != null ){
+                        $("#myGender").text(response.gender);
+                    }    
+                    else{
+                        $("#myGender").text("");
+                    }
+                    if(response.name != undefined && response.name != null ){
+                        $("#myInterest").text(response.interested_in);
+                    }    
+                    else{
+                        $("#myInterest").text("");
+                    }
+
+
+
                     var lang = $.map(response.languages, function(index) {
                         return index.name;
                     });
                     $("#myLanguages").text(lang);
 
                     //About
-                    $("#myQoutes").text(response.quotes);
+
+                    if(response.quotes != undefined && response.quotes != null ){
+                        $("#myQoutes").text(response.quotes);
+                    }    
+                    else{
+                        $("#myQoutes").text("");
+                    }
+
+                    
 
                     $("#myEmail").text(response.email);
 
@@ -111,7 +153,7 @@ $( document ).ready(function() {
                         return index.name;
                     });
                     
-                    var friendsCounts = response.friends.summary.total_count;
+                    var friendsCounts = response.friends.summary.total_count ;
 
                     $("#myFriends").text(friends + "+" + friendsCounts + " more" ); 
 
