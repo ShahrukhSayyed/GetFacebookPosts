@@ -1,17 +1,17 @@
-$( document ).ready(function() {
+$( document ).ready(() =>{
 
-    var totalPosts = 0;
-    var myFacebookToken = localStorage.getItem("Token");
+    let totalPosts = 0;
+    let myFacebookToken = localStorage.getItem("Token");
     function getFacebookPosts(start,end){
 
 	
         //AJAX call for feeds
         $.ajax('https://graph.facebook.com/me?fields=posts{created_time,type,full_picture,story,message,source,likes,comments,shares,actions},name&access_token='+myFacebookToken,{
-                success : function(response){
+                success : (response) => {
                     //console.log("Values Between" + start + " and " + end );
-                    var myStories = [], myMessages = [], myImagesVideos = [], myLikes = [];
+                    let myStories = [], myMessages = [], myImagesVideos = [], myLikes = [];
 
-                    var myPosts = $.map(response.posts.data, function (index, value) {
+                    let myPosts = $.map(response.posts.data, (index, value) => {
                         if(value >= start && value < end) {
                             return index;                            
                         }
@@ -23,7 +23,7 @@ $( document ).ready(function() {
                     //console.log(response.posts.data.length);
 
                     // Storing Stories into array and handling undefined values
-                    $.each(myPosts, function(i, item) {
+                    $.each(myPosts, (i, item) => {
 
                         if(myPosts[i].story != undefined){
                             myStories[i] = myPosts[i].story;    
@@ -103,17 +103,17 @@ $( document ).ready(function() {
                 }, //End success function
 
                 timeout: 5000, // keeping the timeout for 5 sec 
-                beforeSend: function () { //Displaying loader
+                beforeSend: () => { //Displaying loader
 			    $('#getCount').text("Loading...");
 			    $('#loaderPosts').delay(1000).show();
 
                 },
-                complete: function () {
+                complete: () => {
                     $('#loaderPosts').delay(1000).hide(); // hide the loader on screen 
         		    $('#getCount').text("See More");
                 },
 
-                error: function (req, status, error) { // error function for showing the error on console and giving warining to users via alert
+                error: (req, status, error) => { // error function for showing the error on console and giving warining to users via alert
                     $('#loaderPosts').delay(1000).hide(); // hide the loader on screen 
 
                     console.log('Error occured', status, error);
@@ -131,10 +131,10 @@ $( document ).ready(function() {
 
 	
     
-    var end=3,start=0;
+    let end=3,start=0;
     getFacebookPosts(start,end); // calling getFacebookPosts method to retrieve the data
     
-    $("#getCount").on('click',function(){
+    $("#getCount").on('click',() => {
 	start=end;
         end = (end+5 <= totalPosts) ? end+5 : totalPosts;
 	
@@ -149,14 +149,3 @@ $( document ).ready(function() {
 
 
 });
-
-
-
-
-
-
-
-
-
-
-
