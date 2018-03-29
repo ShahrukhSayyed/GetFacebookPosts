@@ -1,8 +1,5 @@
  // main document ready function to check if dom is loaded fully or not
 $( document ).ready(function() {
-
-
-
     //Classes added for NavBar
     $('ul li').click(function(){
         $("li").removeClass("active");
@@ -110,20 +107,21 @@ $( document ).ready(function() {
                         $("#myName").text("Not available in facebook");
                     }
 
-                    if(response.name != undefined && response.name != null ){
+                    if(response.birthday != undefined && response.birthday != null ){
                         $("#myBirthday").text(response.birthday);
                     }    
                     else{
-                        $("#myName").text("Not available in facebook");
+                        $("#myBirthday").text("Not available in facebook");
                     }
-                    if(response.name != undefined && response.name != null ){
+			
+                    if(response.gender != undefined && response.gender != null ){
                         $("#myGender").text(response.gender);
                     }    
                     else{
                         $("#myGender").text("Not available in facebook");
                     }
                     
-                    if(response.name != undefined && response.name != null ){
+                    if(response.interested_in != undefined && response.interested_in != null ){
                         $("#myInterest").text(response.interested_in);
                     }    
                     else{
